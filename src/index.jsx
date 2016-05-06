@@ -206,10 +206,8 @@ class Selection extends React.Component {
     const {children, target, ...props} = this.props
     return (
       <div {...props} className="react-selection" onMouseDown={this.mousedown}>
-        <div ref="square" className="react-selection-rectangle" style={this.state.rectangleStyle} />
-        <div className="react-selection-target">
-          {children}
-        </div>
+        {children}
+        <div className="react-selection-rectangle" style={this.state.rectangleStyle} />
       </div>
     )
   }
