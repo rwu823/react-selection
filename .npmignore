@@ -1,0 +1,12 @@
+!/.npmignore
+.nyc_output
+/assets
+/coverage
+/demo
+/scripts
+/src
+/test
+
+/*.md
+/*.js
+/.*

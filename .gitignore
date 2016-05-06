@@ -1,0 +1,8 @@
+node_modules
+coverage
+npm-debug.log
+.nyc_output
+.storybook
+/dist
+/assets.json
+selenium-server-standalone-*.jar
