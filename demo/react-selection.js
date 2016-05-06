@@ -640,12 +640,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return _react2.default.createElement(
 	        'div',
 	        _extends({}, props, { className: 'react-selection', onMouseDown: this.mousedown }),
-	        _react2.default.createElement('div', { ref: 'square', className: 'react-selection-rectangle', style: this.state.rectangleStyle }),
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'react-selection-target' },
-	          children
-	        )
+	        children,
+	        _react2.default.createElement('div', { className: 'react-selection-rectangle', style: this.state.rectangleStyle })
 	      );
 	    }
 	  }]);
