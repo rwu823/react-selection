@@ -18,7 +18,7 @@ https://rwu823.github.io/react-selection/demo
 import Selection from 'react-selection'
 
 afterSelect = (selectedTargets)=>{
-  
+  const hasSelected = selectedTargets.length
 }
 
 render() {  
