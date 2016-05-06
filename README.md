@@ -14,6 +14,10 @@ https://rwu823.github.io/react-selection/demo
 
 ## Usage
 
+```html
+<link href="/dist/react-selection.css" rel="stylesheet" />
+```
+
 ```javascript
 import Selection from 'react-selection'
 
