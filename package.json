@@ -21,7 +21,7 @@
   "license": "MIT",
   "ava": {
     "require": [
-      "babel-register",
+      "babel-core/register",
       "./test/setup/jsdom",
       "./test/setup/require-hook"
     ],
