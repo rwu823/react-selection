@@ -20,6 +20,12 @@
     justify-content: center;
     flex-direction: column;
   }
+  header a {
+    display: inline-block;
+  }
+  .star-badge {
+    margin-top: 20px;
+  }
   .h1-selection {
     font-weight: 100;
     font-family: 'Source Code Pro';
@@ -68,6 +74,17 @@
 <header>
   <h1>React <span class="h1-selection">&lt;Selection /&gt;</span></h1>
   <div>
+    <a href="https://www.npmjs.org/package/react-selection">
+      <img src="https://img.shields.io/npm/v/react-selection.svg?label=version"/>
+    </a>
+    <a href="https://travis-ci.org/rwu823/react-selection">
+      <img src="https://img.shields.io/travis/rwu823/react-selection.svg?branch=master"/>
+    </a>
+    <a href="https://coveralls.io/github/rwu823/react-selection">
+      <img src="https://img.shields.io/coveralls/rwu823/react-selection.svg"/>
+    </a>
+  </div>
+  <div class="star-badge">
     <a href="https://github.com/rwu823/react-selection">
       <img src="https://img.shields.io/github/stars/rwu823/react-selection.svg?style=social&label=Stars"/>
     </a>
