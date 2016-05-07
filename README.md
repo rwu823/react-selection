@@ -2,15 +2,13 @@
 
 # React Selection
 
-![](https://raw.githubusercontent.com/rwu823/react-selection/master/assets/screen-demo.gif)
-
-
+Like the normal OS selection, it builds in algorithm for detect two rectangles are overlap, so the performance is pretty fast.
 
 ## Live Demo
 
 https://rwu823.github.io/react-selection/demo
 
-
+![](https://raw.githubusercontent.com/rwu823/react-selection/master/assets/screen-demo.gif)
 
 ## Usage
 
