@@ -1,7 +1,7 @@
 {
   "name": "react-selection",
-  "version": "0.0.1",
-  "description": "React Selection - like the OS selection",
+  "version": "0.1.0",
+  "description": "Like the OS selection",
   "main": "dist/react-section.min.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --content-base demo/",

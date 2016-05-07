@@ -202,6 +202,21 @@ class Selection extends React.Component {
     })
   }
 
+  shouldComponentUpdate({target, selectedClass, isLimit},
+    {rectangleStyle: {left, top, width, height, opacity}}) {
+
+    const {props, state: {rectangleStyle}} = this
+
+    return target !== props.target ||
+        selectedClass !== props.selectedClass ||
+        isLimit !== props.isLimit ||
+        left !== rectangleStyle.left ||
+        top !== rectangleStyle.top ||
+        width !== rectangleStyle.width ||
+        height !== rectangleStyle.height ||
+        opacity !== rectangleStyle.opacity
+  }
+
   render() {
     const {children, target, ...props} = this.props
     return (
