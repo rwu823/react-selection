@@ -35,7 +35,7 @@ test.beforeEach(async ()=> {
   doc = await setEnv()
   app = doc.getElementById('app')
 
-  compo = mount( <Selection target=".target" noOut={true}><Target /></Selection>)
+  compo = mount( <Selection target=".target" isLimit={true}><Target /></Selection>)
 })
 
 
