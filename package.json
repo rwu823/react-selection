@@ -5,8 +5,8 @@
   "main": "dist/react-section.min.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --content-base demo/",
-    "build": "export WEBPACK=prod && babel-node scripts/build",
-    "build.demo": "export WEBPACK=demo && webpack",
+    "build": "WEBPACK=prod babel-node scripts/build",
+    "build.demo": "WEBPACK=demo webpack",
     "test": "nyc ava -v",
     "test.watch": "nyc ava -vw",
     "test.ui": "nightwatch",

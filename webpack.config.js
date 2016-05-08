@@ -1,6 +1,7 @@
-const isDemo = process.env.WEBPACK === 'demo'
-const isDev = !process.env.WEBPACK
-const isProd = process.env.WEBPACK === 'prod'
+const webpackEnv = process.env.WEBPACK
+const isDemo = webpackEnv === 'demo'
+const isDev = !webpackEnv
+const isProd = webpackEnv === 'prod'
 
 const webpack = require('webpack')
 const ExtractText = require('extract-text-webpack-plugin')
