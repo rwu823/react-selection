@@ -2,7 +2,7 @@
   "name": "react-selection",
   "version": "0.1.0",
   "description": "Like the OS selection",
-  "main": "dist/react-section.min.js",
+  "main": "dist/react-selection.min.js",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --content-base demo/",
     "build": "WEBPACK=prod babel-node scripts/build",
