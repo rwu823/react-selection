@@ -1,6 +1,6 @@
 import test from 'ava'
 import jsdom from 'jsdom'
-import toggleClass from '../src/toggle-class'
+import toggleClass from '../toggle-class'
 
 const setEnv = ()=> {
   return new Promise((resolve, reject) => {

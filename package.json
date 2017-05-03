@@ -1,10 +1,10 @@
 {
   "name": "react-selection",
-  "version": "0.1.0",
-  "description": "Like the OS selection",
+  "version": "1.0.0",
+  "description": "React Selection - Likes the OS selection",
   "main": "dist/react-selection.min.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --content-base demo/",
+    "dev": "webpack-dev-server --inline --hot",
     "build": "WEBPACK=prod babel-node scripts/build",
     "build.demo": "WEBPACK=demo webpack",
     "test": "nyc ava -v",
@@ -19,63 +19,35 @@
   ],
   "author": "Rocky Wu <rocky823@gmail.com>",
   "license": "MIT",
-  "ava": {
-    "require": [
-      "babel-core/register",
-      "./test/setup/jsdom",
-      "./test/setup/require-hook"
-    ],
-    "babel": "inherit",
-    "files": [
-      "test/*.spec.js"
-    ]
-  },
-  "nyc": {
-    "extension": [
-      ".jsx"
-    ]
-  },
   "devDependencies": {
-    "ava": "^0.14.0",
-    "babel-cli": "^6.8.0",
-    "babel-core": "^6.8.0",
-    "babel-eslint": "^6.0.2",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-transform-react-constant-elements": "^6.8.0",
-    "babel-plugin-transform-react-inline-elements": "^6.8.0",
-    "babel-plugin-transform-remove-console": "^6.8.0",
-    "babel-plugin-transform-strict-mode": "^6.8.0",
-    "babel-preset-es2015": "^6.6.0",
+    "babel-loader": "^7.0.0",
+    "babel-preset-env": "^1.4.0",
     "babel-preset-react": "^6.5.0",
-    "babel-preset-react-hmre": "^1.1.1",
-    "babel-preset-stage-0": "^6.5.0",
+    "babel-preset-stage-2": "^6.24.1",
     "chalk": "^1.1.3",
-    "coveralls": "^2.11.9",
-    "css-loader": "^0.23.1",
     "enzyme": "^2.2.0",
-    "eslint": "^2.7.0",
-    "extract-text-webpack-plugin": "^1.0.1",
     "glob": "^7.0.3",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.7",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.3",
-    "jsdom": "^9.0.0",
-    "nyc": "^6.4.3",
-    "react": "^15.0.1",
+    "html-webpack-plugin": "^2.28.0",
+    "jest-cli": "^19.0.2",
     "react-addons-test-utils": "^15.0.2",
-    "react-dom": "^15.0.1",
+    "rollup": "^0.41.6",
+    "rollup-plugin-babel": "^2.7.1",
     "shelljs": "^0.7.0",
-    "sinon": "^1.17.4",
-    "style-loader": "^0.13.1",
-    "stylus-loader": "^2.0.0",
-    "webpack": "^1.13.0",
-    "webpack-dev-server": "^1.14.1"
+    "webpack": "^2.4.1",
+    "webpack-dev-server": "^2.4.5"
   },
   "directories": {
     "test": "test"
   },
-  "dependencies": {},
+  "dependencies": {
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rwu823/react-selection.git"

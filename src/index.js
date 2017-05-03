@@ -1,16 +1,17 @@
-import React, {PropTypes} from 'react'
-import {findDOMNode} from 'react-dom'
+import React, { Component, PureComponent } from 'react'
+import PropTypes, { bool, string, array, number, object, func } from 'prop-types'
+import { findDOMNode } from 'react-dom'
 import toggleClass from './toggle-class'
 import LimitRange from './limit-range'
 
-require('./react-selection.styl')
+// require('./react-selection.styl')
 
 const topLeftLimitRange = new LimitRange('top-left')
 const topRightLimitRange = new LimitRange('top-right')
 const downRightLimitRange = new LimitRange('down-right')
 const downLeftLimitRange = new LimitRange('down-left')
 
-class Selection extends React.Component {
+class Selection extends Component {
   static propTypes = {
     target: PropTypes.string.isRequired,
     selectedClass: PropTypes.string,
@@ -24,7 +25,7 @@ class Selection extends React.Component {
     isLimit: false,
     afterSelect() {
 
-    }
+    },
   }
 
   state = {
@@ -34,14 +35,14 @@ class Selection extends React.Component {
       width: 0,
       height: 0,
       opacity: 0,
-    }
+    },
   }
-  
+
   componentDidMount() {
     this._box = findDOMNode(this)
   }
 
-  mousedown = (ev)=> {
+  mousedown = (ev) => {
     const targetSelect = this.props.target
     this.targets = Array.from(this._box.querySelectorAll(targetSelect))
     this.ctrlKey = (ev.ctrlKey || ev.metaKey)
@@ -49,7 +50,7 @@ class Selection extends React.Component {
     if (this.ctrlKey) {
       window.addEventListener('keyup', this.keyup, false)
     } else {
-      this.targets.forEach((target)=> {
+      this.targets.forEach((target) => {
         target.classList.remove(this.props.selectedClass)
       })
     }
@@ -61,31 +62,31 @@ class Selection extends React.Component {
     document.addEventListener('mouseup', this.mouseup, false)
   }
 
-  afterSelect = ()=> {
-    const {afterSelect, selectedClass} = this.props
+  afterSelect = () => {
+    const { afterSelect, selectedClass } = this.props
     afterSelect(this.targets.filter(t => t.classList.contains(selectedClass)))
   }
 
-  keyup = (ev) =>{
+  keyup = (ev) => {
     if (!this.ctrlKey) return
     this.afterSelect()
     window.removeEventListener('keyup', this.keyup)
   }
 
-  mouseup = (ev)=> {
-    const {isLimit} = this.props
+  mouseup = (ev) => {
+    const { isLimit } = this.props
     this.setState({
       rectangleStyle: {
         ...this.state.rectangleStyle,
         opacity: 0,
-      }
+      },
     })
 
     document.removeEventListener('mousemove', this.mousemove)
     document.removeEventListener('mouseup', this.mouseup)
 
     if (this.ctrlKey) {
-      this.targets.forEach((t)=> t.removeAttribute('data-is-double'))
+      this.targets.forEach((t) => t.removeAttribute('data-is-double'))
     } else {
       this.afterSelect()
     }
@@ -98,10 +99,10 @@ class Selection extends React.Component {
     }
   }
 
-  mousemove = (ev)=> {
+  mousemove = (ev) => {
     const moveX = (ev.pageX - this._box.offsetLeft) - this.clickX
     const moveY = (ev.pageY - this._box.offsetTop) - this.clickY
-    const {isLimit} = this.props
+    const { isLimit } = this.props
 
     let rectangleSize = {}
 
@@ -167,11 +168,11 @@ class Selection extends React.Component {
       rectangleStyle: {
         ...rectangleSize,
         opacity: 1,
-      }
+      },
     })
 
-    this.targets.forEach((target)=> {
-      const {selectedClass} = this.props
+    this.targets.forEach((target) => {
+      const { selectedClass } = this.props
       const tar = {
         x: target.offsetLeft,
         y: target.offsetTop,
@@ -202,23 +203,23 @@ class Selection extends React.Component {
     })
   }
 
-  shouldComponentUpdate({target, selectedClass, isLimit},
-    {rectangleStyle: {left, top, width, height, opacity}}) {
+  shouldComponentUpdate({ target, selectedClass, isLimit },
+                        { rectangleStyle: { left, top, width, height, opacity } }) {
 
-    const {props, state: {rectangleStyle}} = this
+    const { props, state: { rectangleStyle } } = this
 
     return target !== props.target ||
-        selectedClass !== props.selectedClass ||
-        isLimit !== props.isLimit ||
-        left !== rectangleStyle.left ||
-        top !== rectangleStyle.top ||
-        width !== rectangleStyle.width ||
-        height !== rectangleStyle.height ||
-        opacity !== rectangleStyle.opacity
+      selectedClass !== props.selectedClass ||
+      isLimit !== props.isLimit ||
+      left !== rectangleStyle.left ||
+      top !== rectangleStyle.top ||
+      width !== rectangleStyle.width ||
+      height !== rectangleStyle.height ||
+      opacity !== rectangleStyle.opacity
   }
 
   render() {
-    const {children, target, ...props} = this.props
+    const { children, target, ...props } = this.props
     return (
       <div {...props} className="react-selection" onMouseDown={this.mousedown}>
         {children}
@@ -228,4 +229,4 @@ class Selection extends React.Component {
   }
 }
 
-module.exports = Selection
+export default Selection

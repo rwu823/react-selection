@@ -1,6 +1,6 @@
 import test from 'ava'
 import React from 'react'
-import Selection from '../src/index.jsx'
+import Selection from '../index.js'
 import {shallow, mount} from 'enzyme'
 import jsdom from 'jsdom'
 import {renderToString} from 'react-dom/server'

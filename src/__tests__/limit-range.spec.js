@@ -1,6 +1,6 @@
 import test from 'ava'
 
-import LimitRange from '../src/limit-range'
+import LimitRange from '../limit-range'
 const topLeftLimitRange = new LimitRange('top-left')
 const topRightLimitRange = new LimitRange('top-right')
 const downRightLimitRange = new LimitRange('down-right')

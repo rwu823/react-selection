@@ -1,14 +1,13 @@
-import React, {} from 'react'
-const {render} = require('react-dom')
-const Selection = require('../src/index.jsx')
+import React, { Component } from 'react'
+import Selection from '../src'
 
-class App extends React.Component {
+class App extends Component {
   static propTypes = {}
 
   static defaultProps = {}
 
-  afterSelect = (selectedTargets)=> {
-    const selectText = (selectedTargets).reduce((pv, cv, idx)=> {
+  afterSelect = (selectedTargets) => {
+    const selectText = (selectedTargets).reduce((pv, cv, idx) => {
       return pv += `${selectedTargets[idx].textContent}\n`
     }, '')
 
@@ -47,33 +46,33 @@ class App extends React.Component {
         <p>Cannot select outside the box</p>
         <div className="select-box">
           <Selection target=".target" afterSelect={this.afterSelect} isLimit={true}>
-              <ul>
-                <li><span className="target">Web technology</span>
-                  <ul>
-                    <li><span className="target">HTML5</span>
-                    </li>
-                    <li><span className="target">CSS</span>
-                      <ul>
-                        <li><span className="target">Sass</span></li>
-                        <li><span className="target">Less</span></li>
-                        <li><span className="target">Stylus</span></li>
-                        <li><span className="target">PostCSS</span></li>
-                      </ul>
-                    </li>
-                    <li><span className="target">JavaScript</span>
-                      <ul>
-                        <li><span className="target">ES 2015</span></li>
-                      </ul>
-                    </li>
-                    <li><span className="target">NodeJS</span></li>
-                  </ul>
-                </li>
-              </ul>
-            </Selection>
+            <ul>
+              <li><span className="target">Web technology</span>
+                <ul>
+                  <li><span className="target">HTML5</span>
+                  </li>
+                  <li><span className="target">CSS</span>
+                    <ul>
+                      <li><span className="target">Sass</span></li>
+                      <li><span className="target">Less</span></li>
+                      <li><span className="target">Stylus</span></li>
+                      <li><span className="target">PostCSS</span></li>
+                    </ul>
+                  </li>
+                  <li><span className="target">JavaScript</span>
+                    <ul>
+                      <li><span className="target">ES 2015</span></li>
+                    </ul>
+                  </li>
+                  <li><span className="target">NodeJS</span></li>
+                </ul>
+              </li>
+            </ul>
+          </Selection>
         </div>
       </div>
     )
   }
 }
 
-render(<App />, document.querySelector('#app'))
+export default App

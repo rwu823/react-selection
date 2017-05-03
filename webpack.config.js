@@ -1,74 +1,42 @@
-const webpackEnv = process.env.WEBPACK
-const isDemo = webpackEnv === 'demo'
-const isDev = !webpackEnv
-const isProd = webpackEnv === 'prod'
-
 const webpack = require('webpack')
-const ExtractText = require('extract-text-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { NODE_ENV } = process.env
 
-console.log({isDev, isDemo, isProd})
+const isDev = !NODE_ENV
+const isProd = NODE_ENV === 'production'
+const isDemo = NODE_ENV === 'dev'
+
+console.log({ isDev, isProd })
 
 module.exports = {
+  watch: isDev,
+  devtool: isDev ? 'eval' : null,
   entry: {
     'react-selection': isProd
-      ? ['./src/index.jsx']
-      : ['./demo'],
+      ? ['./src']
+      : ['./dev'],
   },
-  output: {
-    path: isDemo ? `${__dirname}/demo` : `${__dirname}/dist`,
-    filename: '[name].js',
-    library: 'ReactSelection',
-    libraryTarget: 'umd',
-  },
+  // output: {
+  //   path: isDemo ? `${__dirname}/dev` : `${__dirname}/dist`,
+  //   filename: '[name].js',
+  //   library: 'ReactSelection',
+  //   libraryTarget: 'umd',
+  // },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: isDev ? ['react-hmre'] : []
-        }
+        use: ['babel-loader'],
       },
-      {
-        test: /\.styl$/,
-        loader: isProd ? ExtractText.extract('style', 'css!stylus') : 'style!css!stylus'
-      }
-    ]
+    ],
   },
-  resolve: {
-    alias: isDemo ? {
-      'react': 'react/dist/react.min.js',
-      'react-dom': 'react-dom/dist/react-dom.min.js',
-    } : {}
-  },
-  externals: isProd ? {
-    'react': {
-      root: 'React',
-      commonjs: 'react',
-      commonjs2: 'react',
-      amd: 'react',
-    },
-    'react-dom': {
-      root: 'ReactDOM',
-      commonjs: 'react-dom',
-      commonjs2: 'react-dom',
-      amd: 'react-dom',
-    },
-    'lodash': {
-      root: '_',
-      commonjs: 'lodash',
-      commonjs2: 'lodash',
-      amd: 'lodash',
-    }
-  } : {},
-  plugins: isProd ?
-    [
-      new ExtractText('react-selection.css')
-    ]
-    : isDemo
-    ? []
-    : [],
-  watch: isDev,
-  devtool: isDev ? 'eval' : '',
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './dev/index.html',
+      minify: {
+        collapseWhitespace: true,
+      },
+    }),
+  ],
 }
